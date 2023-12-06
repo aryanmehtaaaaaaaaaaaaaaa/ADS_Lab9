@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SPAM CLASSIFIER</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="SMS Spam Filter  Spam  Ham">
+    <meta name="description" content="Spam or Ham SMS Filter">
+    <link rel="icon" type="image/png" href="" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h3 align="center">SPAM CLASSIFIER</h3>
+    <br>
+    <div class="container">
+        <form action="{{ url_for('predict')}}" method="POST" align="center">
+            <p class="lead">Enter Your Text below</p>
+            <textarea name="message" rows="4" cols="50" placeholder="Try: Hey baby, I love you!"
+                required="required"></textarea>
+            <br />
+            <input type="submit" class="btn-info btn" value="Check">
+        </form>
+    </div>
+
+    <br><br><br>
+
+    <div class="results">
+        {% if prediction == 1%}
+        <p style="font-size:30;text-align: center;" class="lead"><b> <u>Result </u></b></p>
+        <h2 style="color:red;" align="center">Spam!</h2>
+        {% elif prediction == 0%}
+        <p style="font-size:30;text-align: center;" class="lead"><b> <u>Result </u></b></p>
+        <h2 style="color:greenyellow;" align="center">Ham! (Not a Spam)</h2>
+        {% endif %}
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
+</body>
+
+</html>
